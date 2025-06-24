@@ -60,6 +60,12 @@ nav .container .link {
     padding: 5px 10px;
 }
 
+@media (max-width: 991px) {
+    nav {
+        display: none;
+    }
+}
+
 /* header */
 header {
     background-image: url(img/home.jpg);
@@ -67,11 +73,14 @@ header {
     background-position: center 50%;
     position: relative;
     top: 0;
-    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
     width: 100%;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     text-align: center;
 }
 
@@ -80,7 +89,7 @@ header .heading {
 }
 
 header .serviey {
-    height: 60px;
+    height: 70px;
     border: 1px solid #efefef80;
     background-color: white;
     display: flex;
@@ -112,11 +121,13 @@ header .common {
     display: flex;
     justify-content: right;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 header .common button {
     padding: 6px 12px;
     margin-right: 5px;
+    margin-bottom: 5px;
     background-color: white;
     border: 1px solid #ccc;
     width: fit-content;
@@ -130,6 +141,7 @@ header .common button:hover {
     color: white;
 }
 
+
 /* sections */
 /* one */
 section {
@@ -137,7 +149,7 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 100px 0;
+    padding: 50px 0;
     width: 100%;
 }
 
@@ -151,6 +163,7 @@ section .container {
 
 section h2 {
     font-size: 28px;
+    text-align: center;
 }
 
 .one .container div {
@@ -189,7 +202,7 @@ section h2 {
 
 .two .container .item {
     margin: 10px;
-    width: 20%;
+    width: 300px;
     height: 60px;
     margin: 10px;
     padding: 15px;
@@ -246,6 +259,17 @@ section h2 {
     box-shadow: 0 0 5px var(--bg-color);
 }
 
+@media (max-width: 767px) {
+    .three .container {
+        flex-direction: column;
+    }
+
+    .three .container .text,
+    .three .container video {
+        width: 95%;
+    }
+}
+
 /* four */
 .four h2 {
     font-size: 28px;
@@ -253,7 +277,7 @@ section h2 {
 }
 
 .four .container div {
-    width: 25%;
+    width: 300px;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -275,7 +299,6 @@ section h2 {
 }
 
 /* five */
-
 .five .head {
     margin-bottom: 30px;
     display: flex;
@@ -297,16 +320,19 @@ section h2 {
 }
 
 .five .container {
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));;
+    justify-content: center;
     align-items: start;
 }
 
 .five .container .item {
     display: flex;
     flex-direction: column;
-    width: 23%;
+    width: 100%;
     height: 100%;
-    margin: 0px 5px;
+    padding: 10px;
+    box-sizing: border-box;
     color: var(--main-color);
     font-size: 14px;
 }
@@ -319,6 +345,7 @@ section h2 {
 
 .five .main {
     width: 100%;
+    height: 100%;
     position: absolute;
 }
 
@@ -397,12 +424,20 @@ section h2 {
     position: relative;
 }
 
-.seven details summary::after {
+/* .seven details summary::after {
     content: "";
     position: absolute;
     left: 0;
     background-image: url(img/downArrow.svg);
     background-size: cover;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.5s ease-in-out;
+} */
+
+.seven details summary img {
+    left: 0;
+    margin: 0px 10px;
     width: 30px;
     height: 30px;
     transition: transform 0.5s ease-in-out;
@@ -412,8 +447,7 @@ section h2 {
     color: var(--third-color);
 }
 
-.seven details[open] summary::after {
-    content: "";
+.seven details[open] summary img {
     transform: rotate(-180deg);
 }
 
@@ -427,6 +461,12 @@ section h2 {
 
 .seven details[open] p {
     max-height: fit-content;
+}
+
+@media (max-width: 767px) {
+    .seven .container {
+        width: 95%;
+    }
 }
 
 /* eight */
@@ -561,4 +601,12 @@ section h2 {
 .end .container p {
     font-size: 11px;
     color: #555;
+}
+
+@media (max-width: 991px) {
+    .nine,
+    .first,
+    .end {
+        display: none;
+    }
 }
